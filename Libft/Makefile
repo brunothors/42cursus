@@ -6,7 +6,7 @@
 #    By: bnespoli <bnespoli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 19:36:32 by bnespoli          #+#    #+#              #
-#    Updated: 2023/10/23 22:54:02 by bnespoli         ###   ########.fr        #
+#    Updated: 2023/10/24 17:52:24 by bnespoli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,11 @@ SRCS = ft_isalpha.c\
  ft_strrchr.c\
  ft_strncmp.c\
  ft_memchr.c\
- ft_memcmp.c
+ ft_memcmp.c\
+ ft_strnstr.c\
+ ft_atoi.c\
+ ft_calloc.c\
+ ft_strdup.c
 OBJS = ${SRCS:.c=.o}
 AR = ar rc
 RM = rm -rf
