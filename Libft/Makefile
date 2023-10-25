@@ -6,7 +6,7 @@
 #    By: bnespoli <bnespoli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 19:36:32 by bnespoli          #+#    #+#              #
-#    Updated: 2023/10/24 17:52:24 by bnespoli         ###   ########.fr        #
+#    Updated: 2023/10/25 18:15:33 by bnespoli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,16 @@ SRCS = ft_isalpha.c\
  ft_strnstr.c\
  ft_atoi.c\
  ft_calloc.c\
- ft_strdup.c
+ ft_strdup.c\
+ ft_substr.c\
+ ft_strjoin.c\
+ ft_strtrim.c\
+ ft_strmapi.c\
+ ft_striteri.c\
+ ft_putchar_fd.c\
+ ft_putstr_fd.c\
+ ft_putendl_fd.c\
+ ft_putnbr_fd.c
 OBJS = ${SRCS:.c=.o}
 AR = ar rc
 RM = rm -rf
@@ -44,6 +53,7 @@ RM = rm -rf
 all: $(NAME)
 
 $(NAME): $(OBJS)
+	gcc $(FLAGS) -c $(SRCS)
 	$(AR) $(NAME) $(OBJS)
 	
 clean:
