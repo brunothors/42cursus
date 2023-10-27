@@ -6,7 +6,7 @@
 #    By: bnespoli <bnespoli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 19:36:32 by bnespoli          #+#    #+#              #
-#    Updated: 2023/10/25 18:15:33 by bnespoli         ###   ########.fr        #
+#    Updated: 2023/10/27 16:51:52 by bnespoli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,8 @@ SRCS = ft_isalpha.c\
  ft_substr.c\
  ft_strjoin.c\
  ft_strtrim.c\
+ ft_split.c\
+ ft_itoa.c\
  ft_strmapi.c\
  ft_striteri.c\
  ft_putchar_fd.c\
