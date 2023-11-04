@@ -6,7 +6,7 @@
 #    By: bnespoli <bnespoli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 19:36:32 by bnespoli          #+#    #+#              #
-#    Updated: 2023/11/03 21:16:09 by bnespoli         ###   ########.fr        #
+#    Updated: 2023/11/04 19:54:03 by bnespoli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,9 @@ SRCS = ft_isalpha.c\
 BSRCS = ft_lstnew.c\
  ft_lstadd_front.c\
  ft_lstsize.c\
- ft_lstlast.c
+ ft_lstlast.c\
+ ft_lstadd_back.c\
+ ft_lstdelone.c
 OBJS = $(SRCS:.c=.o)
 BOBJS = $(BSRCS:.c=.o)
 AR = ar rc
