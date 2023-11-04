@@ -6,7 +6,7 @@
 #    By: bnespoli <bnespoli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 19:36:32 by bnespoli          #+#    #+#              #
-#    Updated: 2023/10/27 16:51:52 by bnespoli         ###   ########.fr        #
+#    Updated: 2023/11/03 21:16:09 by bnespoli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,20 +46,30 @@ SRCS = ft_isalpha.c\
  ft_putstr_fd.c\
  ft_putendl_fd.c\
  ft_putnbr_fd.c
-OBJS = ${SRCS:.c=.o}
+BSRCS = ft_lstnew.c\
+ ft_lstadd_front.c\
+ ft_lstsize.c\
+ ft_lstlast.c
+OBJS = $(SRCS:.c=.o)
+BOBJS = $(BSRCS:.c=.o)
 AR = ar rc
 RM = rm -rf
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	gcc $(FLAGS) -c $(SRCS)
 	$(AR) $(NAME) $(OBJS)
-	
+
+bonus: $(OBJS) $(BOBJS)
+	$(AR) $(NAME) $(OBJS) $(BOBJS)
+
+%.o: %.c
+	gcc $(FLAGS) -c $?
+		
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(BOBJS)
 
 fclean: clean
 	$(RM) $(NAME)
