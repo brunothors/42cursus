@@ -6,7 +6,7 @@
 #    By: bnespoli <bnespoli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 19:36:32 by bnespoli          #+#    #+#              #
-#    Updated: 2023/11/04 19:54:03 by bnespoli         ###   ########.fr        #
+#    Updated: 2023/11/06 15:51:00 by bnespoli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,16 +46,20 @@ SRCS = ft_isalpha.c\
  ft_putstr_fd.c\
  ft_putendl_fd.c\
  ft_putnbr_fd.c
-BSRCS = ft_lstnew.c\
- ft_lstadd_front.c\
- ft_lstsize.c\
- ft_lstlast.c\
- ft_lstadd_back.c\
- ft_lstdelone.c
+BSRCS = ft_lstnew_bonus.c\
+ ft_lstadd_front_bonus.c\
+ ft_lstsize_bonus.c\
+ ft_lstlast_bonus.c\
+ ft_lstadd_back_bonus.c\
+ ft_lstdelone_bonus.c
 OBJS = $(SRCS:.c=.o)
 BOBJS = $(BSRCS:.c=.o)
 AR = ar rc
 RM = rm -rf
+
+ifdef WITH_BONUS
+	OBJS += $(BOBJS)
+endif
 
 .PHONY: all clean fclean re bonus
 
@@ -64,11 +68,11 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
-bonus: $(OBJS) $(BOBJS)
-	$(AR) $(NAME) $(OBJS) $(BOBJS)
+bonus:
+	@make WITH_BONUS=TRUE --no-print-directory
 
 %.o: %.c
-	gcc $(FLAGS) -c $?
+	cc -c $(FLAGS) $?
 		
 clean:
 	$(RM) $(OBJS) $(BOBJS)
