@@ -6,7 +6,7 @@
 #    By: bnespoli <bnespoli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 19:36:32 by bnespoli          #+#    #+#              #
-#    Updated: 2023/11/06 15:51:00 by bnespoli         ###   ########.fr        #
+#    Updated: 2023/11/06 19:55:53 by bnespoli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,29 +51,27 @@ BSRCS = ft_lstnew_bonus.c\
  ft_lstsize_bonus.c\
  ft_lstlast_bonus.c\
  ft_lstadd_back_bonus.c\
- ft_lstdelone_bonus.c
+ ft_lstdelone_bonus.c\
+ ft_lstclear_bonus.c\
+ ft_lstiter_bonus.c\
+ ft_lstmap_bonus.c
 OBJS = $(SRCS:.c=.o)
 BOBJS = $(BSRCS:.c=.o)
 AR = ar rc
 RM = rm -rf
 
-ifdef WITH_BONUS
-	OBJS += $(BOBJS)
-endif
-
 .PHONY: all clean fclean re bonus
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
-
-bonus:
-	@make WITH_BONUS=TRUE --no-print-directory
-
 %.o: %.c
 	cc -c $(FLAGS) $?
-		
+	$(AR) $(NAME) $@
+
+$(NAME): $(OBJS)
+
+bonus: $(BOBJS)
+
 clean:
 	$(RM) $(OBJS) $(BOBJS)
 
