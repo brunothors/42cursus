@@ -6,12 +6,13 @@
 #    By: bnespoli <bnespoli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 19:36:32 by bnespoli          #+#    #+#              #
-#    Updated: 2023/11/06 19:55:53 by bnespoli         ###   ########.fr        #
+#    Updated: 2024/01/10 19:16:51 by bnespoli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 FLAGS = -Wall -Wextra -Werror
+INCLUDES = libft.h
 SRCS = ft_isalpha.c\
  ft_isdigit.c\
  ft_isalnum.c\
@@ -57,7 +58,6 @@ BSRCS = ft_lstnew_bonus.c\
  ft_lstmap_bonus.c
 OBJS = $(SRCS:.c=.o)
 BOBJS = $(BSRCS:.c=.o)
-AR = ar rc
 RM = rm -rf
 
 .PHONY: all clean fclean re bonus
@@ -65,8 +65,8 @@ RM = rm -rf
 all: $(NAME)
 
 %.o: %.c
-	cc -c $(FLAGS) $?
-	$(AR) $(NAME) $@
+	cc -I $(INCLUDES) $(FLAGS) -c $?
+	ar rcs $(NAME) $@
 
 $(NAME): $(OBJS)
 
